@@ -23,21 +23,11 @@ class App extends Component {
   }
 
   render() {
-    // const user = this.state;
+    const user = this.state;
+
     return (
       <div className="m-2">
         <NavBar user={this.state.user} />
-        {/* <ContributorHome /> */}
-        {/* <Home /> */}
-        {/* <HomeNormalUser /> */}
-        {/* <Dol /> */}
-        {/* <div className="row">
-          <div className="col-3"></div>
-
-          <div className="col-6">
-            <UploadImage />
-          </div>
-        </div> */}
 
         <main>
           <Switch>
@@ -46,9 +36,6 @@ class App extends Component {
             <Route path="/homeNormalUser" exact component={HomeNormalUser} />
 
             <Route path="/contributorHome" exact component={ContributorHome} />
-            {/* <Route path="/uploadImage" exact component={UploadImage} />
-            <Route path="/dol" exact component={Dol} /> */}
-            {/*  <Route path="/dol" exact component={Dol} /> */}
           </Switch>
         </main>
       </div>

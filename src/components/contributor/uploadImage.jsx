@@ -9,8 +9,6 @@ class UploadImage extends Validation {
   state = {
     data: {
       imageName: "",
-      // image: "",
-      // Categories: [],
     },
     errors: {},
 
@@ -19,8 +17,6 @@ class UploadImage extends Validation {
 
   schema = {
     imageName: Joi.string().required().min(5).max(255),
-    // image: Joi.string(),
-    // Categories: Joi.string(),
   };
 
   // async componentDidMount() {
@@ -39,8 +35,7 @@ class UploadImage extends Validation {
   onFileChange = (event) => {
     // Update the state
     console.log("onFileChange", event.target.files[0]);
-    console.log("onFileChange", event.target.files[0]);
-    // console.log("currentTatget", event.currentTatget.files);
+
     this.setState({ selectedFile: event.target.files[0] });
     let d = axios
       .get("http://localhost:9630/api/image")
@@ -71,12 +66,6 @@ class UploadImage extends Validation {
 
   doSubmit = async () => {
     console.log("log in", this.state.data);
-    // const { data } = this.state;
-    // const success = await auth.login(data.email, data.password);
-    // console.log("suc", success);
-    // if (success) {
-    //   window.location = "/welcome";
-    // }
   };
 
   render() {
@@ -107,17 +96,6 @@ class UploadImage extends Validation {
               // error={errors.image}
             />
 
-            {/* <select
-              id=" Categories"
-              name=" Categories"
-              value="value"
-              className="custom-select custom-select-sm"
-            >
-              {console.log("cat", this.state.data.Categories)}
-              {this.state.data.Categories.map((category) => (
-                <option>{category.categoryName}</option>
-              ))}
-            </select> */}
             <button
               type="submit"
               className=" btn btn-primary  btn-block mb-3 mt-3"
@@ -125,28 +103,6 @@ class UploadImage extends Validation {
               Submit
             </button>
           </form>
-
-          {/* <form onSubmit={this.onFileUpload}>
-            <h2>f2</h2>
-            <Input
-              id="image"
-              label="Image"
-              type="file"
-              value={data.image}
-              // placeholder="Name"
-              className="m-2 "
-              // onChange={this.handleChange}
-              // error={errors.image}
-              onChange={this.onFileChange}
-            />
-     
-            <button
-              type="submit"
-              className=" btn btn-primary  btn-block mb-3 mt-3"
-            >
-              up loade
-            </button>
-          </form> */}
         </div>
       </div>
     );
